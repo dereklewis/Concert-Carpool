@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Trey Anastasio",
+    "email": "trey@phish.com",
+    "password": "reba",
+    "city": "Burlington",
+    "neighborhood": "uptown",
+    "aboutme": "I shred some major guitar"
+  },
+  {
+    "name": "Jimi Hendrix",
+    "email": "jimi@hendrix.com",
+    "password": "boldaslove",
+    "city": "Seattle",
+    "neighborhood": "Pike's Place",
+    "aboutme": "I shred some guitar as well"
+  },
+  {
+    "name": "Jim Morrison",
+    "email": "mrmojorison@thedoors.com",
+    "password": "lawoman",
+    "city": "Los Angeles",
+    "neighborhood": "Venice",
+    "aboutme": "I drank a lot and gave my first live performance with my back to the crowd"
+  },
+  {
+    "name": "Janice Joplin",
+    "email": "janice@jj.com",
+    "password": "bobbymcgee",
+    "city": "Port Arthur",
+    "neighborhood": "Main Street",
+    "aboutme": "Hook 'em Horns!"
+  },
+  {
+    "name": "Jerry Garcia",
+    "email": "jerry@deadhead.com",
+    "password": "chinacat>rider",
+    "city": "San Francisco",
+    "neighborhood": "Height & Ashbury",
+    "aboutme": "A friend of the devil is a friend of mine"
+  },
+  {
+    "name": "Gregg Allman",
+    "email": "gregg@allmanbros.com",
+    "password": "sweetmelissa",
+    "city": "Nashville",
+    "neighborhood": "Honkey Tonk",
+    "aboutme": "Lord I was born to be a ramblin' man"
+  }
+]
