@@ -14,8 +14,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Calendar from "./pages/Calendar";
-// import Header from "./components/Header";
-// import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -43,28 +43,19 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          {/* <Header />
+          <Header />
           <div className="container">
-            <Route exact path="/">
-              <Home />
-            </Route> */}
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
-          <Route exact path="/calendar">
-            <Calendar />
-          </Route>
-          {/* <Route exact path="/me">
-              <Profile />
+            <Route exact path="/login">
+              <Login />
             </Route>
-            <Route exact path="/profiles/:profileId">
-              <Profile />
+            <Route exact path="/signup">
+              <Signup />
+            </Route>
+            <Route exact path="/calendar">
+              <Calendar />
             </Route>
           </div>
-          <Footer /> */}
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>
