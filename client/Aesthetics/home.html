@@ -110,6 +110,21 @@
         id neque quasi ut vitae suscipit aliquid dolorem eos amet voluptatibus
         magni praesentium?
       </p>
+      <button
+        type="button"
+        class="btn btn-dark"
+        data-bs-toggle="modal"
+        data-bs-target="#loginModal"
+      >
+        Login
+      </button>
+      <button
+        class="btn btn-primary"
+        data-bs-target="#loginModalToggle2"
+        data-bs-toggle="modal"
+      >
+        Register
+      </button>
     </div>
     <br />
     <!-- Modal -->
@@ -123,7 +138,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="loginModalToggleLabel">Modal 1</h5>
+            <h5 class="modal-title" id="loginModalToggleLabel">Login Pool</h5>
             <button
               type="button"
               class="btn-close"
@@ -140,7 +155,7 @@
               data-bs-target="#loginModalToggle2"
               data-bs-toggle="modal"
             >
-              Open second modal
+              Register
             </button>
           </div>
         </div>
@@ -156,7 +171,9 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="loginModalToggleLabel2">Modal 2</h5>
+            <h5 class="modal-title" id="loginModalToggleLabel2">
+              Register Pool
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -169,11 +186,12 @@
           </div>
           <div class="modal-footer">
             <button
-              class="btn btn-primary"
+              type="button"
+              class="btn btn-dark"
+              data-bs-toggle="modal"
               data-bs-target="#loginModal"
-              data-bs-toggle="loginModal"
             >
-              Back to first
+              Login
             </button>
           </div>
         </div>
