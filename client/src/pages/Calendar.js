@@ -4,41 +4,46 @@ import React, { useState, useEffect } from "react";
 
 function Calendar() {
   const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://api.seatgeek.com/2/events/?client_id=MjM3NzI3ODd8MTYzMzU0MDY3NC4zNTI5MjA1&client_secret=0fdc156151875a2dc1cdbc53d8c92b8f2fb285b057f2d750a78e4b2956d6e2fa"
-    )
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          console.log(result);
-          setIsLoaded(true);
-          setItems(result);
-        },
-        (error) => {
-          console.log(error);
-          setIsLoaded(true);
-          setError(error);
-        }
-      );
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(
+          "https://api.seatgeek.com/2/events/?client_id=MjM3NzI3ODd8MTYzMzU0MDY3NC4zNTI5MjA1&client_secret=0fdc156151875a2dc1cdbc53d8c92b8f2fb285b057f2d750a78e4b2956d6e2fa&venue.state=CO"
+        );
+        const data = await response.json();
+        console.log("events", data);
+        setEvents(data.events);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+        setIsLoading(true);
+        setError(error);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
     <div>
-      {isLoaded ? (
+      {isLoading ? (
+        <span>Loading...</span>
+      ) : (
         <>
-          <ul>
-            {items.map((item) => (
-              <li key={item.id}>
-                {item.name} {item.price}
+          <ol>
+            {events.map((event) => (
+              <li key={event.id}>
+                <p>{event.performers[0].name}</p>
+                <p>{event.venue.name}</p>
               </li>
             ))}
-          </ul>
+          </ol>
         </>
-      ) : (
+      )}
+      {error && (
         <span>Hmm... seems that there are no concerts popping up here!</span>
       )}
     </div>
