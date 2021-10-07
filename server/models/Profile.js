@@ -19,6 +19,24 @@ const profileSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  city: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 3,
+  },
+  neighborhood: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 3,
+  },
+  aboutme: {
+    type: String,
+    required: true,
+    trim: true,
+    maxlength: 150,
+  },
 });
 
 profileSchema.pre("save", async function (next) {
