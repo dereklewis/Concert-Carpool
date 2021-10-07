@@ -1,5 +1,3 @@
-//concert calendar of events -- api call
-
 import React, { useState, useEffect } from "react";
 
 function Calendar() {
