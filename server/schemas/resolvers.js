@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { Profile } = require("../models");
+const { Profile, Event } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -71,6 +71,59 @@ const resolvers = {
     //     );
     //   }
     //   throw new AuthenticationError("You need to be logged in!");
+    // },
+  },
+
+  Query: {
+    events: async () => {
+      return Event.find();
+    },
+
+    event: async (parent, { eventId }) => {
+      return Event.findOne({ _id: eventId });
+    },
+    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return Event.findOne({ _id: context.user._id });
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+  },
+
+  Mutation: {
+    addEvent: async (
+      parent,
+      { eventName, eventLocation, eventDate, driver, passenger, notes, profile }
+    ) => {
+      const event = await Event.create({
+        eventName,
+        eventLocation,
+        eventDate,
+        driver,
+        passenger,
+        notes,
+        profile,
+      });
+      // const token = signToken(profile);
+
+      // return { token, profile };
+    },
+    // login: async (parent, { email, password }) => {
+    //   const profile = await Profile.findOne({ email });
+
+    //   if (!profile) {
+    //     throw new AuthenticationError("No profile with this email found!");
+    //   }
+
+    //   const correctPw = await profile.isCorrectPassword(password);
+
+    //   if (!correctPw) {
+    //     throw new AuthenticationError("Incorrect password!");
+    //   }
+
+    //   const token = signToken(profile);
+    //   return { token, profile };
     // },
   },
 };
