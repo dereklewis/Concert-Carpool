@@ -45,28 +45,26 @@ const typeDefs = gql`
     profile: Profile
   }
 
-  type Auth {
-    token: ID!
-    profile: Profile
-  }
   type Query {
-    profiles: [Profile]!
-    profile(profileId: ID!): Profile
+    events: [Event]!
+    event(eventId: ID!): Event
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
-    me: Profile
+    me: Event
   }
 
   type Mutation {
-    addProfile(
-      name: String!
-      email: String!
-      password: String!
-      city: String!
-      neighborhood: String!
-      aboutme: String!
+    addEvent(
+      _id: ID
+      eventName: String
+      eventLocation: String
+      eventDate: Date
+      driver: String
+      passenger: String
+      notes: String
+      profile: Profile
     ): Auth
     login(email: String!, password: String!): Auth
-    removeProfile: Profile
+    removeEvent: Event
   }
 `;
 
