@@ -206,90 +206,129 @@
           <div class="modal-body">
             <form class="row g-3">
               <div class="col-md-4">
-                <label for="validationDefault01" class="form-label"
+                <label for="validationServer01" class="form-label"
                   >First name</label
                 >
                 <input
                   type="text"
-                  class="form-control"
-                  id="validationDefault01"
-                  value="Cav3man"
+                  class="form-control is-valid"
+                  id="validationServer01"
+                  value="Mark"
                   required
                 />
+                <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="col-md-4">
-                <label for="validationDefault02" class="form-label"
+                <label for="validationServer02" class="form-label"
                   >Last name</label
                 >
                 <input
                   type="text"
-                  class="form-control"
-                  id="validationDefault02"
-                  value="Skilletbomber"
+                  class="form-control is-valid"
+                  id="validationServer02"
+                  value="Otto"
                   required
                 />
+                <div class="valid-feedback">Looks good!</div>
               </div>
               <div class="col-md-4">
-                <label for="validationDefaultUsername" class="form-label"
+                <label for="validationServerUsername" class="form-label"
                   >Username</label
                 >
-                <div class="input-group">
-                  <span class="input-group-text" id="inputGroupPrepend2"
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend3"
                     >@</span
                   >
                   <input
                     type="text"
-                    class="form-control"
-                    id="validationDefaultUsername"
-                    aria-describedby="inputGroupPrepend2"
+                    class="form-control is-invalid"
+                    id="validationServerUsername"
+                    aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
                     required
                   />
+                  <div
+                    id="validationServerUsernameFeedback"
+                    class="invalid-feedback"
+                  >
+                    Please choose a username.
+                  </div>
                 </div>
               </div>
               <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">City</label>
+                <label for="validationServer03" class="form-label">City</label>
                 <input
                   type="text"
-                  class="form-control"
-                  id="validationDefault03"
+                  class="form-control is-invalid"
+                  id="validationServer03"
+                  aria-describedby="validationServer03Feedback"
                   required
                 />
+                <div id="validationServer03Feedback" class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
               </div>
               <div class="col-md-3">
-                <label for="validationDefault04" class="form-label">Hood</label>
-                <select class="form-select" id="validationDefault04" required>
+                <label for="validationServer04" class="form-label"
+                  >Neighborhood</label
+                >
+                <select
+                  class="form-select is-invalid"
+                  id="validationServer04"
+                  aria-describedby="validationServer04Feedback"
+                  required
+                >
                   <option selected disabled value="">Choose...</option>
-                  <option>Colorado</option>
-                  <option>Not Colorado</option>
                   <option>RiNo</option>
                   <option>LoDo</option>
+                  <option>Sloans Lake</option>
+                  <option>University</option>
+                  <option>Wash Park</option>
+                  <option>Cap Hill</option>
+                  <option>Baker</option>
+                  <option>City Park</option>
+                  <option>HiDo</option>
                 </select>
+                <div id="validationServer04Feedback" class="invalid-feedback">
+                  Please select a valid neighborhood.
+                </div>
               </div>
               <div class="col-md-3">
-                <label for="validationDefault05" class="form-label">Zip</label>
+                <label for="validationServer05" class="form-label"
+                  >About you.</label
+                >
                 <input
                   type="text"
-                  class="form-control"
-                  id="validationDefault05"
+                  class="form-control is-invalid"
+                  id="validationServer05"
+                  aria-describedby="validationServer05Feedback"
                   required
                 />
+                <div id="validationServer05Feedback" class="invalid-feedback">
+                  Please provide a valid description.
+                </div>
               </div>
               <div class="col-12">
                 <div class="form-check">
                   <input
-                    class="form-check-input"
+                    class="form-check-input is-invalid"
                     type="checkbox"
                     value=""
-                    id="invalidCheck2"
+                    id="invalidCheck3"
+                    aria-describedby="invalidCheck3Feedback"
                     required
                   />
-                  <label class="form-check-label" for="invalidCheck2">
-                    Agree to terms and conditions
+                  <label class="form-check-label" for="invalidCheck3">
+                    Are you a driver?
                   </label>
+                  <div id="invalidCheck3Feedback" class="invalid-feedback">
+                    Help me set this to non-required please
+                  </div>
                 </div>
               </div>
               <div class="col-12">
-                <button class="btn btn-primary" type="submit">Register</button>
+                <button class="btn btn-primary" type="submit">
+                  Submit form
+                </button>
               </div>
             </form>
           </div>
