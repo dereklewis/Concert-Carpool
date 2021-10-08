@@ -7,18 +7,17 @@ db.once("open", async () => {
   try {
     await Profile.deleteMany({});
     await Profile.create(profileSeeds);
+    const profileData = await Profile.find({});
 
-    console.log("all done!");
-    process.exit(0);
-  } catch (err) {
-    throw err;
-  }
-});
-
-db.once("open", async () => {
-  try {
     await Event.deleteMany({});
-    await Event.create(eventSeeds);
+    console.log(profileData);
+    for (let i = 0; i < eventSeeds.length; i++) {
+      const eventProfile = await Event.create({
+        ...eventSeeds[i],
+        profile: profileData[i]._id,
+      });
+      console.log(`${eventProfile}`);
+    }
 
     console.log("all done!");
     process.exit(0);
