@@ -11,14 +11,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //IMPORT VARIABLES FROM OTHER FILES
 // import Home from "./pages/Home";
 // import Profile from "./pages/Profile";
-// import Cards from "./components/Cards/cards";
+
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Calendar from "./pages/Calendar";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-//import moreCards from "./components/Cards/cards";
-import Event from "./pages/Events";
+import Events from "./pages/Events";
+
+import HTMLexample from "./pages/HTMLexample";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -58,8 +59,11 @@ function App() {
               <Route exact path="/calendar">
                 <Calendar />
               </Route>
-              <Route exact path="/event">
-                <Event />
+              <Route exact path="/events">
+                <Events />
+              </Route>
+              <Route exact path="/htmlexample">
+                <HTMLexample />
               </Route>
             </Switch>
           </div>
