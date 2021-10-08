@@ -21,6 +21,7 @@ function Calendar() {
         setIsLoading(false);
       } catch (error) {
         console.log(error);
+
         setIsLoading(true);
         setError(error);
       }
@@ -51,14 +52,9 @@ function Calendar() {
                   <ListGroupItem>{event.datetime_local}</ListGroupItem>
                 </ListGroup>
                 <Card.Body>
-                  <Card.Link href="#">Card Link</Card.Link>
+                  <Card.Link href="#">I Want to Carpool!</Card.Link>
                   <Card.Link href={event.url}>Buy Tickets</Card.Link>
                 </Card.Body>
-                {/* <p>{event.performers[0].name}</p>
-                <p>{event.venue.name}</p>
-                <p>{event.venue.address}</p>
-                <p>{event.datetime_local}</p>
-                <p>{event.url}</p> */}
               </Card>
             ))}
           </ol>
