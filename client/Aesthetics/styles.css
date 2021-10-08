@@ -2,6 +2,7 @@ body {
   background-color: #118ab2;
   color: #073b4c;
   font-family: "Ephesis", cursive;
+  font-size: larger;
 }
 
 a {
@@ -18,14 +19,17 @@ a:visited {
 
 .modal-footer {
   background-color: #ef476f;
+  font-size: xx-large;
 }
 
 .modal-body {
   background-color: #ffd166;
+  font-size: xx-large;
 }
 
 .modal-header {
   background-color: #06d6a0;
+  font-size: xx-large;
 }
 
 .page-content {
@@ -49,7 +53,6 @@ a:visited {
     rgba(239, 71, 111, 1) 100%
   );
   max-height: 55vh;
-  font-size: larger;
 }
 
 .user-card {
