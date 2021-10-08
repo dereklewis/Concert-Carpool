@@ -32,29 +32,55 @@ const EventForm = ({ profileId }) => {
       {Auth.loggedIn() ? (
         <Form onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Event Name</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="Enter event name"
               value={event}
               onChange={(event) => setEvent(event.target.value)}
             />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Event Location</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter event location"
+              value={event}
+              onChange={(event) => setEvent(event.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Event Date</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter the event date"
+              value={event}
+              onChange={(event) => setEvent(event.target.value)}
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Driver</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="Would you like to be a driver"
+              value={event}
+              onChange={(event) => setEvent(event.target.value)}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Passenger</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Would you like to be a passenger"
               value={event}
               onChange={(event) => setEvent(event.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-            <Form.Label>Example textarea</Form.Label>
+            <Form.Label>
+              Notes - add carpool notes here! Ex: Time of arrival to the venue
+            </Form.Label>
             <Form.Control
               as="textarea"
               rows={3}
