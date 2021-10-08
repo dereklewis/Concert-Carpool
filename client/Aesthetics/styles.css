@@ -5,6 +5,12 @@ body {
   font-size: larger;
 }
 
+.navbar-brand {
+  background: -webkit-linear-gradient(#06d6a0, #ffd166, #ef476f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 a {
   color: #073b4c;
 }
@@ -41,7 +47,15 @@ a:visited {
     rgba(239, 71, 111, 1) 100%
   );
   min-height: 100vh;
-  font-family: "Birthstone", cursive;
+  font-family: "Oxygen", sans-serif;
+  font-size: xx-large;
+}
+
+p,
+h1 {
+  font-size: xx-large;
+  color: #ef476f;
+  background: transparent;
 }
 
 .event-card {
