@@ -15,7 +15,7 @@ a {
 }
 
 a:hover {
-  color: #ef476f;
+  color: #06d6a0;
 }
 
 a:visited {
@@ -58,6 +58,7 @@ a:visited {
     rgba(239, 71, 111, 1) 100%
   );
   max-height: 55vh;
+  overflow: hidden;
 }
 
 .user-card {
@@ -69,4 +70,23 @@ a:visited {
     rgba(239, 71, 111, 1) 100%
   );
   max-height: 55vh;
+  overflow: hidden;
+}
+
+input,
+li {
+  background: rgb(6, 214, 160);
+  background: linear-gradient(
+    180deg,
+    rgba(6, 214, 160, 1) 0%,
+    rgba(255, 209, 102, 1) 50%
+  );
+}
+
+nav ul li a {
+  font-size: larger;
+}
+
+nav ul li a:visited {
+  color: #ef476f;
 }
