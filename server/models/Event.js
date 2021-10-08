@@ -27,12 +27,10 @@ const eventSchema = new Schema({
     trim: true,
     maxlength: 75,
   },
-  profile: [
-    {
-      type: Schema.Types.name,
-      ref: "Profile",
-    },
-  ],
+  profile: {
+    type: Schema.Types.ObjectId,
+    ref: "Profile",
+  },
 });
 
 const Event = model("Event", eventSchema);
