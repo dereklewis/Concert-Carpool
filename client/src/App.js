@@ -19,7 +19,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Events from "./pages/Events";
 
-import HTMLexample from "./pages/HTMLexample";
+// import HTMLexample from "./pages/HTMLexample";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -62,9 +62,9 @@ function App() {
               <Route exact path="/events">
                 <Events />
               </Route>
-              <Route exact path="/htmlexample">
+              {/* <Route exact path="/htmlexample">
                 <HTMLexample />
-              </Route>
+              </Route> */}
             </Switch>
           </div>
           <Footer />

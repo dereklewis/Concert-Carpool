@@ -8,7 +8,12 @@ import Auth from "../utils/auth";
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
-
+  if (error) {
+    console.log(JSON.stringify(error));
+  }
+  if (data) {
+    console.log(JSON.stringify(data));
+  }
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,10 +29,13 @@ const Login = (props) => {
     event.preventDefault();
     console.log(formState);
     try {
-      const { data } = await login({
+      const { data, error: loginError } = await login({
         variables: { ...formState },
       });
-
+      if (loginError) {
+        console.log(JSON.stringify(loginError));
+      }
+      console.log({ data });
       Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
