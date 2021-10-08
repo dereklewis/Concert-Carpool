@@ -48,14 +48,6 @@ a:visited {
   );
   min-height: 100vh;
   font-family: "Oxygen", sans-serif;
-  font-size: xx-large;
-}
-
-p,
-h1 {
-  font-size: xx-large;
-  color: #ef476f;
-  background: transparent;
 }
 
 .event-card {
