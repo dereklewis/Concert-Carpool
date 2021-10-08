@@ -17,6 +17,7 @@ import Login from "./pages/Login";
 import Calendar from "./pages/Calendar";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Event from "./pages/Event";
 import Events from "./pages/Events";
 
 // import HTMLexample from "./pages/HTMLexample";
@@ -58,6 +59,9 @@ function App() {
               </Route>
               <Route exact path="/calendar">
                 <Calendar />
+              </Route>
+              <Route exact path="/eventform">
+                <Event />
               </Route>
               <Route exact path="/events">
                 <Events />

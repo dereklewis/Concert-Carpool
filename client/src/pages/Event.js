@@ -3,6 +3,8 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
+import EventForm from "../components/AddNewForm/AddNewForm";
+
 import { QUERY_SINGLE_EVENT, QUERY_ME } from "../utils/queries";
 
 import Auth from "../utils/auth";
@@ -39,8 +41,11 @@ const Event = () => {
         {eventId ? `${event.name}'s` : "This event"} most current carpool
         opportunities. Get out there and make some new friends! skills...
       </h2>
+      <EventForm />
     </div>
   );
 };
 
 export default Event;
+
+//we want to import our single form into this return ^
