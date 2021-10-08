@@ -42,3 +42,36 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const ADD_EVENT = gql`
+  mutation addEvent(
+    $eventName: String
+    $eventLocation: String
+    $eventDate: Date
+    $driver: String
+    $passenger: String
+    $notes: String
+    $profile: Profile
+  ) {
+    addEvent(
+      eventName: $eventName
+      eventLocation: $eventLocation
+      eventDate: $eventDate
+      driver: $driver
+      passenger: $passenger
+      notes: $notes
+      profile: $profile
+    ) {
+      token
+      profile {
+        _id
+        name
+        email
+        password
+        city
+        neighborhood
+        aboutme
+      }
+    }
+  }
+`;
