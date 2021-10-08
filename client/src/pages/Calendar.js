@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Card } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
+import { ListGroupItem } from "react-bootstrap";
 
 function Calendar() {
   const [error, setError] = useState(null);
@@ -33,10 +36,30 @@ function Calendar() {
         <>
           <ol>
             {events.map((event) => (
-              <li key={event.id}>
-                <p>{event.performers[0].name}</p>
+              <Card style={{ width: "18rem" }} key={event.id}>
+                <Card.Img
+                  variant="top"
+                  src="holder.js/100px180?text=Image cap"
+                  src={event.performers[0].image}
+                />
+                <Card.Body>
+                  <Card.Title>{event.performers[0].name}</Card.Title>
+                  <Card.Text>{event.venue.name}</Card.Text>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroupItem>{event.venue.address}</ListGroupItem>
+                  <ListGroupItem>{event.datetime_local}</ListGroupItem>
+                </ListGroup>
+                <Card.Body>
+                  <Card.Link href="#">Card Link</Card.Link>
+                  <Card.Link href={event.url}>Buy Tickets</Card.Link>
+                </Card.Body>
+                {/* <p>{event.performers[0].name}</p>
                 <p>{event.venue.name}</p>
-              </li>
+                <p>{event.venue.address}</p>
+                <p>{event.datetime_local}</p>
+                <p>{event.url}</p> */}
+              </Card>
             ))}
           </ol>
         </>
