@@ -5,8 +5,7 @@
     "eventDate": "2021-10-07T03:30:00",
     "driver": true,
     "passenger": false,
-    "notes": "truckin' up to Buffalo",
-    "profile": "Jerry Garcia"
+    "notes": "truckin' up to Buffalo"
   },
   {
     "eventName": "Leon Bridges",
@@ -14,8 +13,7 @@
     "eventDate": "2021-10-03T03:30:00",
     "driver": false,
     "passenger": true,
-    "notes": "in a white room with black curtains",
-    "profile": "Eric Clapton"
+    "notes": "in a white room with black curtains"
   },
   {
     "eventName": "Lane 8",
@@ -23,7 +21,6 @@
     "eventDate": "2021-11-07T03:30:00",
     "driver": true,
     "passenger": false,
-    "notes": "bump, bump, bump, bump",
-    "profile": "Marshmallow"
+    "notes": "bump, bump, bump, bump"
   }
 ]
