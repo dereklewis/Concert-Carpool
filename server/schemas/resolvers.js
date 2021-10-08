@@ -11,6 +11,14 @@ const resolvers = {
     profile: async (parent, { profileId }) => {
       return Profile.findOne({ _id: profileId });
     },
+
+    events: async () => {
+      return Event.find();
+    },
+
+    event: async (parent, { eventId }) => {
+      return Event.findOne({ _id: eventId });
+    },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
       if (context.user) {
@@ -37,7 +45,9 @@ const resolvers = {
 
       return { token, profile };
     },
+
     login: async (parent, { email, password }) => {
+      console.log("we are inside the function");
       const profile = await Profile.findOne({ email });
 
       if (!profile) {
@@ -51,6 +61,7 @@ const resolvers = {
       }
 
       const token = signToken(profile);
+      console.log({ token, profile });
       return { token, profile };
     },
 
@@ -61,37 +72,6 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    // Make it so a logged in user can only remove a skill from their own profile
-    // removeSkill: async (parent, { skill }, context) => {
-    //   if (context.user) {
-    //     return Profile.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { skills: skill } },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
-  },
-
-  Query: {
-    events: async () => {
-      return Event.find();
-    },
-
-    event: async (parent, { eventId }) => {
-      return Event.findOne({ _id: eventId });
-    },
-    // By adding context to our query, we can retrieve the logged in user without specifically searching for them
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return Event.findOne({ _id: context.user._id });
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-  },
-
-  Mutation: {
     addEvent: async (
       parent,
       { eventName, eventLocation, eventDate, driver, passenger, notes, profile }
@@ -109,23 +89,70 @@ const resolvers = {
 
       // return { token, profile };
     },
-    // login: async (parent, { email, password }) => {
-    //   const profile = await Profile.findOne({ email });
-
-    //   if (!profile) {
-    //     throw new AuthenticationError("No profile with this email found!");
+    // Make it so a logged in user can only remove a skill from their own profile
+    // removeSkill: async (parent, { skill }, context) => {
+    //   if (context.user) {
+    //     return Profile.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { skills: skill } },
+    //       { new: true }
+    //     );
     //   }
-
-    //   const correctPw = await profile.isCorrectPassword(password);
-
-    //   if (!correctPw) {
-    //     throw new AuthenticationError("Incorrect password!");
-    //   }
-
-    //   const token = signToken(profile);
-    //   return { token, profile };
+    //   throw new AuthenticationError("You need to be logged in!");
     // },
   },
+
+  // Query: {
+  //   events: async () => {
+  //     return Event.find();
+  //   },
+
+  //   event: async (parent, { eventId }) => {
+  //     return Event.findOne({ _id: eventId });
+  //   },
+  //   // By adding context to our query, we can retrieve the logged in user without specifically searching for them
+  //   // me: async (parent, args, context) => {
+  //   //   if (context.user) {
+  //   //     return Event.findOne({ _id: context.user._id });
+  //   //   }
+  //   //   throw new AuthenticationError("You need to be logged in!");
+  //   // },
+  // },
+
+  // Mutation: {
+  //   addEvent: async (
+  //     parent,
+  //     { eventName, eventLocation, eventDate, driver, passenger, notes, profile }
+  //   ) => {
+  //     const event = await Event.create({
+  //       eventName,
+  //       eventLocation,
+  //       eventDate,
+  //       driver,
+  //       passenger,
+  //       notes,
+  //       profile,
+  //     });
+  //     // const token = signToken(profile);
+
+  //     // return { token, profile };
+  //   },
+  // login: async (parent, { email, password }) => {
+  //   const profile = await Profile.findOne({ email });
+
+  //   if (!profile) {
+  //     throw new AuthenticationError("No profile with this email found!");
+  //   }
+
+  //   const correctPw = await profile.isCorrectPassword(password);
+
+  //   if (!correctPw) {
+  //     throw new AuthenticationError("Incorrect password!");
+  //   }
+
+  //   const token = signToken(profile);
+  //   return { token, profile };
+  // },
 };
 
 module.exports = resolvers;
