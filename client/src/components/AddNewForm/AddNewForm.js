@@ -9,19 +9,32 @@ import { ADD_EVENT } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
 const EventForm = ({ profileId }) => {
-  const [event, setEvent] = useState("");
+  const [eventName, setEventName] = useState("");
+  const [eventLocation, setEventLocation] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [eventDriver, setEventDriver] = useState("");
+  const [eventPassenger, setEventPassenger] = useState("");
+  const [eventNotes, setEventNotes] = useState("");
 
   const [addEvent, { error }] = useMutation(ADD_EVENT);
-
+  const profile = Auth.getProfile();
+  const profileData = profile.data._id;
+  console.log(profile);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const data = await addEvent({
-        variables: { profileId, event },
+        variables: {
+          eventName,
+          eventLocation,
+          eventDate,
+          eventDriver,
+          eventPassenger,
+          eventNotes,
+          profileData,
+        },
       });
-
-      setEvent("");
     } catch (err) {
       console.error(err);
     }
@@ -34,47 +47,47 @@ const EventForm = ({ profileId }) => {
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Event Name</Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               placeholder="Enter event name"
-              value={event}
-              onChange={(event) => setEvent(event.target.value)}
+              value={eventName}
+              onChange={(event) => setEventName(event.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Event Location</Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               placeholder="Enter event location"
-              value={event}
-              onChange={(event) => setEvent(event.target.value)}
+              value={eventLocation}
+              onChange={(event) => setEventLocation(event.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Event Date</Form.Label>
             <Form.Control
-              type="email"
+              type="text"
               placeholder="Enter the event date"
-              value={event}
-              onChange={(event) => setEvent(event.target.value)}
+              value={eventDate}
+              onChange={(event) => setEventDate(event.target.value)}
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Driver</Form.Label>
             <Form.Control
-              type="password"
+              type="text"
               placeholder="Would you like to be a driver"
-              value={event}
-              onChange={(event) => setEvent(event.target.value)}
+              value={eventDriver}
+              onChange={(event) => setEventDriver(event.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Passenger</Form.Label>
             <Form.Control
-              type="password"
+              type="text"
               placeholder="Would you like to be a passenger"
-              value={event}
-              onChange={(event) => setEvent(event.target.value)}
+              value={eventPassenger}
+              onChange={(event) => setEventPassenger(event.target.value)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -84,8 +97,8 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               as="textarea"
               rows={3}
-              value={event}
-              onChange={(event) => setEvent(event.target.value)}
+              value={eventNotes}
+              onChange={(event) => setEventNotes(event.target.value)}
             />
           </Form.Group>
           <Button variant="primary" type="submit">

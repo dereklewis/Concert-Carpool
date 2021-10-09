@@ -38,15 +38,28 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addProfile(name: String!, email: String!, password: String!, city: String!, neighborhood: String!, aboutme: String!): Auth
-    
+    addProfile(
+      name: String!
+      email: String!
+      password: String!
+      city: String!
+      neighborhood: String!
+      aboutme: String!
+    ): Auth
+
     login(email: String!, password: String!): Auth
     removeProfile: Profile
 
-    addEvent(_id: ID, eventName: String, eventLocation: String, eventDate: String, driver: String, passenger: String, notes: String, profile: ID): Auth
+    addEvent(
+      eventName: String!,eventLocation: String!,
+      eventDate: String!,
+      driver: String!,
+      passenger: String!,
+      notes: String!,
+      profile: ID!
+    ): Event
     removeEvent: Event
   }
-
 `;
 
 module.exports = typeDefs;

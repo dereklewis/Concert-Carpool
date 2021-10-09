@@ -76,6 +76,15 @@ const resolvers = {
       parent,
       { eventName, eventLocation, eventDate, driver, passenger, notes, profile }
     ) => {
+      console.log(
+        eventName,
+        eventLocation,
+        eventDate,
+        driver,
+        passenger,
+        notes,
+        profile
+      );
       const event = await Event.create({
         eventName,
         eventLocation,
@@ -85,6 +94,8 @@ const resolvers = {
         notes,
         profile,
       });
+
+      return event;
       // const token = signToken(profile);
 
       // return { token, profile };
