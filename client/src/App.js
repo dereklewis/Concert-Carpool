@@ -19,6 +19,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Event from "./pages/Event";
 import Events from "./pages/Events";
+import EventForm from "./Components/AddNewForm/AddNewForm";
 
 // import HTMLexample from "./pages/HTMLexample";
 
