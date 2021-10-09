@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import EventList from "../components/EventList/EventList";
+import EventList from "../Components/EventList/EventList";
 
 import { QUERY_EVENTS } from "../utils/queries";
 
