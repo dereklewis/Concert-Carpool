@@ -15,11 +15,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Calendar from "./pages/Calendar";
-import Header from "./Components/Header/Header";
-import Footer from "./Components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Event from "./pages/Event";
 import Events from "./pages/Events";
-import EventForm from "./Components/AddNewForm/AddNewForm";
+import EventForm from "./components/AddNewForm/AddNewForm";
 
 // import HTMLexample from "./pages/HTMLexample";
 
@@ -62,14 +62,11 @@ function App() {
                 <Calendar />
               </Route>
               <Route exact path="/eventform">
-                <Event />
+                <EventForm />
               </Route>
               <Route exact path="/events">
                 <Events />
               </Route>
-              {/* <Route exact path="/htmlexample">
-                <HTMLexample />
-              </Route> */}
             </Switch>
           </div>
           <Footer />
