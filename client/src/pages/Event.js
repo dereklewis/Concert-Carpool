@@ -3,7 +3,7 @@ import React from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import EventForm from "../Components/AddNewForm/AddNewForm";
+import EventForm from "../components/AddNewForm/AddNewForm";
 
 import { QUERY_SINGLE_EVENT, QUERY_ME } from "../utils/queries";
 

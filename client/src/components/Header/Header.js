@@ -17,15 +17,22 @@ const Header = () => {
           </h1>
         </Link>
         <p className="m-0" style={{ fontSize: "1.75rem", fontWeight: "700" }}>
-          Welcome to Concert Carpool! Blah Blah Blah Blah Blah Blah Blah Blah
-          Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah Blah
-          Blah Blah Blah Blah Blah
+          Welcome to Concert Carpool! Going to concerts is great, but sometimes
+          it’s a pain to coordinate getting to the venue. Our site helps you
+          concert goers find prospective rides to carpool together to your
+          concert venue.
         </p>
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/me">
-                View My Profile
+              <Link className="btn btn-lg btn-light m-2" to="/">
+                Back to Homepage
+              </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/calendar">
+                View Events
+              </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/eventform">
+                Fill out carpool form
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
@@ -38,6 +45,12 @@ const Header = () => {
               </Link>
               <Link className="btn btn-lg btn-light m-2" to="/signup">
                 Signup
+              </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/calendar">
+                View Events
+              </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/eventform">
+                Fill out carpool form
               </Link>
             </>
           )}

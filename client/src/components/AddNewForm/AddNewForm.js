@@ -17,24 +17,58 @@ const EventForm = ({ profileId }) => {
   const [eventNotes, setEventNotes] = useState("");
 
   const [addEvent, { error }] = useMutation(ADD_EVENT);
+
   const profile = Auth.getProfile();
   const profileData = profile.data._id;
-  console.log(profile);
+  // console.log(profile);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    console.log(event.target.value);
+
+    setEventName({
+      ...eventName,
+      [name]: value,
+    });
+    setEventLocation({
+      ...eventLocation,
+      [name]: value,
+    });
+    setEventDate({
+      ...eventDate,
+      [name]: value,
+    });
+    setEventDriver({
+      ...eventDriver,
+      [name]: value,
+    });
+    setEventPassenger({
+      ...eventPassenger,
+      [name]: value,
+    });
+    setEventNotes({
+      ...eventNotes,
+      [name]: value,
+    });
+  };
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const data = await addEvent({
         variables: {
-          eventName,
-          eventLocation,
-          eventDate,
-          eventDriver,
-          eventPassenger,
-          eventNotes,
-          profileData,
+          ...eventName,
+          ...eventLocation,
+          ...eventDate,
+          ...eventDriver,
+          ...eventPassenger,
+          ...eventNotes,
+          ...profileData,
         },
       });
+
+      console.log(JSON.stringify(data));
     } catch (err) {
       console.error(err);
     }
@@ -43,12 +77,13 @@ const EventForm = ({ profileId }) => {
   return (
     <div>
       {Auth.loggedIn() ? (
-        <Form onSubmit={handleFormSubmit}>
+        <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Event Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter event name"
+              name="eventName"
               value={eventName}
               onChange={(event) => setEventName(event.target.value)}
             />
@@ -58,6 +93,7 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               type="text"
               placeholder="Enter event location"
+              name="eventLocation"
               value={eventLocation}
               onChange={(event) => setEventLocation(event.target.value)}
             />
@@ -67,6 +103,7 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               type="text"
               placeholder="Enter the event date"
+              name="eventDate"
               value={eventDate}
               onChange={(event) => setEventDate(event.target.value)}
             />
@@ -77,6 +114,7 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               type="text"
               placeholder="Would you like to be a driver"
+              name="eventDriver"
               value={eventDriver}
               onChange={(event) => setEventDriver(event.target.value)}
             />
@@ -86,6 +124,7 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               type="text"
               placeholder="Would you like to be a passenger"
+              name="eventPassenger"
               value={eventPassenger}
               onChange={(event) => setEventPassenger(event.target.value)}
             />
@@ -97,11 +136,12 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               as="textarea"
               rows={3}
+              name="eventNotes"
               value={eventNotes}
               onChange={(event) => setEventNotes(event.target.value)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onSubmit={handleFormSubmit}>
             Submit
           </Button>
         </Form>
