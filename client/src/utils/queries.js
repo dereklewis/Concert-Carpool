@@ -32,6 +32,11 @@ export const QUERY_EVENTS = gql`
     events {
       _id
       eventName
+      eventLocation
+      eventDate
+      driver
+      passenger
+      notes
     }
   }
 `;
@@ -41,6 +46,11 @@ export const QUERY_SINGLE_EVENT = gql`
     event(eventId: $eventId) {
       _id
       eventName
+      eventLocation
+      eventDate
+      driver
+      passenger
+      notes
     }
   }
 `;
