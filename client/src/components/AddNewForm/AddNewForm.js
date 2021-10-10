@@ -129,7 +129,7 @@ const EventForm = () => {
               onChange={(event) => handleInputChange(event)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" href="/events">
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
