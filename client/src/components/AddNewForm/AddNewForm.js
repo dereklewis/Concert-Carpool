@@ -91,7 +91,7 @@ const EventForm = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Event Date</Form.Label>
+            <Form.Label>Event Date(ex: 2021-10-12)</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter the event date"
