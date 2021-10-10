@@ -58,7 +58,9 @@ function Calendar() {
                     </ListGroup>
                     <Card.Body>
                       <Card.Link href="/eventform">Carpool!</Card.Link>
-                      <Card.Link href={event.url}>Buy Tickets</Card.Link>
+                      <Card.Link target="_blank" href={event.url}>
+                        Buy Tickets
+                      </Card.Link>
                     </Card.Body>
                   </Card>
                 </Row>
