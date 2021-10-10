@@ -31,7 +31,7 @@ export const QUERY_EVENTS = gql`
   query allEvents {
     events {
       _id
-      name
+      eventName
     }
   }
 `;
@@ -40,7 +40,7 @@ export const QUERY_SINGLE_EVENT = gql`
   query singleEvent($eventId: ID!) {
     event(eventId: $eventId) {
       _id
-      name
+      eventName
     }
   }
 `;
