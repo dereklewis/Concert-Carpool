@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -11,6 +11,8 @@ import Auth from "../../utils/auth";
 const EventForm = () => {
   const profile = Auth.getProfile();
   const profileId = profile.data._id;
+
+  const history = useHistory();
 
   const [eventForm, setEventForm] = useState({
     eventName: "",
@@ -57,6 +59,8 @@ const EventForm = () => {
       });
       //need to redirect react-router here -> whatever we are showing in our cards
       console.log("this is the data", JSON.stringify(data));
+
+      history.push("/events");
     } catch (error) {
       console.log("this is an event error", error);
     }
