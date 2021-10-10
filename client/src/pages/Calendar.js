@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
-import { ListGroup, ListGroupItem, Row } from "react-bootstrap";
+import { ListGroup, ListGroupItem, Row, Container } from "react-bootstrap";
 
 function Calendar() {
   const [error, setError] = useState(null);
@@ -34,34 +34,38 @@ function Calendar() {
         <span>Loading...</span>
       ) : (
         <>
-          <div className="d-flex">
-            {events.map((event) => (
-              <Row>
-                <Card
-                  style={{ width: "18rem" }}
-                  key={event.id}
-                  className="m-10"
-                >
-                  <Card.Img
-                    variant="top"
-                    src="holder.js/100px180?text=Image cap"
-                    src={event.performers[0].image}
-                  />
-                  <Card.Body>
-                    <Card.Title>{event.performers[0].name}</Card.Title>
-                    <Card.Text>{event.venue.name}</Card.Text>
-                  </Card.Body>
-                  <ListGroup className="list-group-flush">
-                    <ListGroupItem>{event.venue.address}</ListGroupItem>
-                    <ListGroupItem>{event.datetime_local}</ListGroupItem>
-                  </ListGroup>
-                  <Card.Body>
-                    <Card.Link href="/eventform">I Want to Carpool!</Card.Link>
-                    <Card.Link href={event.url}>Buy Tickets</Card.Link>
-                  </Card.Body>
-                </Card>
-              </Row>
-            ))}
+          <div>
+            <Container className="d-flex justify-content-space-evenly">
+              {events.map((event) => (
+                <Row>
+                  <Card
+                    style={{ width: "18rem" }}
+                    key={event.id}
+                    className="m-10"
+                  >
+                    <Card.Img
+                      variant="top"
+                      src="holder.js/100px180?text=Image cap"
+                      src={event.performers[0].image}
+                    />
+                    <Card.Body>
+                      <Card.Title>{event.performers[0].name}</Card.Title>
+                      <Card.Text>{event.venue.name}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroupItem>{event.venue.address}</ListGroupItem>
+                      <ListGroupItem>{event.datetime_local}</ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                      <Card.Link href="/eventform">
+                        I Want to Carpool!
+                      </Card.Link>
+                      <Card.Link href={event.url}>Buy Tickets</Card.Link>
+                    </Card.Body>
+                  </Card>
+                </Row>
+              ))}
+            </Container>
           </div>
         </>
       )}

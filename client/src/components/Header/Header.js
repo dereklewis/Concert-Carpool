@@ -29,10 +29,13 @@ const Header = () => {
                 Back to Homepage
               </Link>
               <Link className="btn btn-lg btn-light m-2" to="/calendar">
-                View Events
+                View Events Near You
               </Link>
               <Link className="btn btn-lg btn-light m-2" to="/eventform">
-                Fill out carpool form
+                Fill Out A New Carpool Form
+              </Link>
+              <Link className="btn btn-lg btn-light m-2" to="/events">
+                Find A Concert To Carpool To!
               </Link>
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
@@ -45,12 +48,6 @@ const Header = () => {
               </Link>
               <Link className="btn btn-lg btn-light m-2" to="/signup">
                 Signup
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/calendar">
-                View Events
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/eventform">
-                Fill out carpool form
               </Link>
             </>
           )}

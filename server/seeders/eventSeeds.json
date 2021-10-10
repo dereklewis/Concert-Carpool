@@ -22,5 +22,29 @@
     "driver": true,
     "passenger": false,
     "notes": "bump, bump, bump, bump"
+  },
+  {
+    "eventName": "Queen",
+    "eventLocation": "Odgen Theatre",
+    "eventDate": "2021-10-07T03:30:00",
+    "driver": true,
+    "passenger": false,
+    "notes": "she's a killer, queeeeeeeennnnnnn"
+  },
+  {
+    "eventName": "Tame Impala",
+    "eventLocation": "Red Rocks Amphitheatre",
+    "eventDate": "2021-10-03T03:30:00",
+    "driver": false,
+    "passenger": true,
+    "notes": "psychadelic indie vibes all day baby"
+  },
+  {
+    "eventName": "Queens of the Stone Age",
+    "eventLocation": "The Mission Ballroom",
+    "eventDate": "2021-11-07T03:30:00",
+    "driver": true,
+    "passenger": false,
+    "notes": "oldie but a goodie, rock on!"
   }
 ]
