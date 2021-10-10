@@ -20,6 +20,7 @@ import Footer from "./components/Footer/Footer";
 import Event from "./pages/Event";
 import Events from "./pages/Events";
 import EventForm from "./components/AddNewForm/AddNewForm";
+import Home from "./pages/Home";
 
 // import HTMLexample from "./pages/HTMLexample";
 
@@ -52,6 +53,9 @@ function App() {
           <Header />
           <div className="container">
             <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
               <Route exact path="/login">
                 <Login />
               </Route>
