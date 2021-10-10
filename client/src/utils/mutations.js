@@ -45,24 +45,27 @@ export const LOGIN_USER = gql`
 
 export const ADD_EVENT = gql`
   mutation addEvent(
-    $eventName: String!,
-    $eventLocation: String!,
-    $eventDate: Date!,
-    $driver: String!,
-    $passenger: String!,
-    $notes: String!,
+    $eventName: String!
+    $eventLocation: String!
+    $eventDate: String!
+    $driver: String!
+    $passenger: String!
+    $notes: String!
     $profile: ID!
   ) {
     addEvent(
-      eventName: $eventName,
-      eventLocation: $eventLocation,
-      eventDate: $eventDate,
-      driver: $driver,
-      passenger: $passenger,
-      notes: $notes,
+      eventName: $eventName
+      eventLocation: $eventLocation
+      eventDate: $eventDate
+      driver: $driver
+      passenger: $passenger
+      notes: $notes
       profile: $profile
     ) {
       eventName
+      eventLocation
+      eventDate
+      driver
     }
   }
 `;

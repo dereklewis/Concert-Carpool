@@ -8,84 +8,72 @@ import { ADD_EVENT } from "../../utils/mutations";
 
 import Auth from "../../utils/auth";
 
-const EventForm = ({ profileId }) => {
-  const [eventName, setEventName] = useState("");
-  const [eventLocation, setEventLocation] = useState("");
-  const [eventDate, setEventDate] = useState("");
-  const [eventDriver, setEventDriver] = useState("");
-  const [eventPassenger, setEventPassenger] = useState("");
-  const [eventNotes, setEventNotes] = useState("");
-
-  const [addEvent, { error }] = useMutation(ADD_EVENT);
-
+const EventForm = () => {
   const profile = Auth.getProfile();
-  const profileData = profile.data._id;
+  const profileId = profile.data._id;
+
+  const [eventForm, setEventForm] = useState({
+    eventName: "",
+    eventLocation: "",
+    eventDate: "",
+    driver: "",
+    passenger: "",
+    notes: "",
+    profile: profileId,
+  });
+
+  const [addEvent, { error, data }] = useMutation(ADD_EVENT);
+
   // console.log(profile);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    console.log(event.target.value);
+    console.log("this is the name", name);
+    console.log("this is the value", value);
 
-    setEventName({
-      ...eventName,
-      [name]: value,
-    });
-    setEventLocation({
-      ...eventLocation,
-      [name]: value,
-    });
-    setEventDate({
-      ...eventDate,
-      [name]: value,
-    });
-    setEventDriver({
-      ...eventDriver,
-      [name]: value,
-    });
-    setEventPassenger({
-      ...eventPassenger,
-      [name]: value,
-    });
-    setEventNotes({
-      ...eventNotes,
+    setEventForm({
+      ...eventForm,
       [name]: value,
     });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log(profileId);
     try {
-      const data = await addEvent({
+      // const obj = {
+      //   eventName: "Tame Impala",
+      //   eventLocation: "Red Rocks",
+      //   eventDate: "2021-10-07",
+      //   driver: "true",
+      //   passenger: "false",
+      //   notes: "yay",
+      //   profile: "6162068e82ea7fe7a5d35ce2",
+      // };
+      const { data } = await addEvent({
         variables: {
-          ...eventName,
-          ...eventLocation,
-          ...eventDate,
-          ...eventDriver,
-          ...eventPassenger,
-          ...eventNotes,
-          ...profileData,
+          ...eventForm,
         },
       });
-
-      console.log(JSON.stringify(data));
-    } catch (err) {
-      console.error(err);
+      //need to redirect react-router here -> whatever we are showing in our cards
+      console.log("this is the data", JSON.stringify(data));
+    } catch (error) {
+      console.log("this is an event error", error);
     }
   };
 
   return (
     <div>
       {Auth.loggedIn() ? (
-        <Form>
+        <Form onSubmit={handleFormSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Event Name</Form.Label>
             <Form.Control
               type="text"
               placeholder="Enter event name"
               name="eventName"
-              value={eventName}
-              onChange={(event) => setEventName(event.target.value)}
+              value={eventForm.eventName}
+              onChange={(event) => handleInputChange(event)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -94,8 +82,8 @@ const EventForm = ({ profileId }) => {
               type="text"
               placeholder="Enter event location"
               name="eventLocation"
-              value={eventLocation}
-              onChange={(event) => setEventLocation(event.target.value)}
+              value={eventForm.eventLocation}
+              onChange={(event) => handleInputChange(event)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -104,8 +92,8 @@ const EventForm = ({ profileId }) => {
               type="text"
               placeholder="Enter the event date"
               name="eventDate"
-              value={eventDate}
-              onChange={(event) => setEventDate(event.target.value)}
+              value={eventForm.eventDate}
+              onChange={(event) => handleInputChange(event)}
             />
           </Form.Group>
 
@@ -114,9 +102,9 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               type="text"
               placeholder="Would you like to be a driver"
-              name="eventDriver"
-              value={eventDriver}
-              onChange={(event) => setEventDriver(event.target.value)}
+              name="driver"
+              value={eventForm.driver}
+              onChange={(event) => handleInputChange(event)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -124,9 +112,9 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               type="text"
               placeholder="Would you like to be a passenger"
-              name="eventPassenger"
-              value={eventPassenger}
-              onChange={(event) => setEventPassenger(event.target.value)}
+              name="passenger"
+              value={eventForm.passenger}
+              onChange={(event) => handleInputChange(event)}
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -136,12 +124,12 @@ const EventForm = ({ profileId }) => {
             <Form.Control
               as="textarea"
               rows={3}
-              name="eventNotes"
-              value={eventNotes}
-              onChange={(event) => setEventNotes(event.target.value)}
+              name="notes"
+              value={eventForm.notes}
+              onChange={(event) => handleInputChange(event)}
             />
           </Form.Group>
-          <Button variant="primary" type="submit" onSubmit={handleFormSubmit}>
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         </Form>
