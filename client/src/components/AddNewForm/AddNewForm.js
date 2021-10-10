@@ -98,7 +98,7 @@ const EventForm = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Driver</Form.Label>
+            <Form.Label>Driver (true/false)</Form.Label>
             <Form.Control
               type="text"
               placeholder="Would you like to be a driver"
@@ -108,7 +108,7 @@ const EventForm = () => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Passenger</Form.Label>
+            <Form.Label>Passenger(true/false)</Form.Label>
             <Form.Control
               type="text"
               placeholder="Would you like to be a passenger"

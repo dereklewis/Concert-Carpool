@@ -35,7 +35,7 @@ function Calendar() {
       ) : (
         <>
           <div>
-            <Container className="d-flex justify-content-space-evenly">
+            <Container className="d-flex justify-content-center">
               {events.map((event) => (
                 <Row>
                   <Card
@@ -57,9 +57,7 @@ function Calendar() {
                       <ListGroupItem>{event.datetime_local}</ListGroupItem>
                     </ListGroup>
                     <Card.Body>
-                      <Card.Link href="/eventform">
-                        I Want to Carpool!
-                      </Card.Link>
+                      <Card.Link href="/eventform">Carpool!</Card.Link>
                       <Card.Link href={event.url}>Buy Tickets</Card.Link>
                     </Card.Body>
                   </Card>
