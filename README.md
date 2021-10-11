@@ -5,6 +5,7 @@ We designed a website to help concert goers find a more efficient way to get to 
 
 ## User Story
 User Story: Going to concerts is great, but it’s a pain to coordinate getting to the venue. If everyone drives themselves, parking can be a nightmare and having to wait for Ubers takes too much time and money.
+
 Solution: Concert Carpool helps concert goers find prospective rides or passengers to carpool together to the concert venue. This is a free alternative to find a ride to a venue and helps improve efficiency in going to/from the venue.
 
 ## Main Frameworks Used
