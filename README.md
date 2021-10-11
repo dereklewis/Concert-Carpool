@@ -1,5 +1,8 @@
 # Concert-Carpool
 
+## Application Purpose
+We designed a website to help concert goers find a more efficient way to get to and from concerts. Concert Carpool provides an easy way to connect and meet up with like-minded people at your favorite artist’s shows, all while preventing the headache that concert goers will inevitably deal with.
+
 ## Main Frameworks Used
 
 React.js, Node.js, MongoDB, GraphQL, Express Apollo Server, JWT, React-Bootstrap, 
