@@ -1,8 +1,15 @@
 # Concert-Carpool
 
-Deployment Link : https://boiling-reef-48460.herokuapp.com/
+## Main Frameworks Used
 
-Below are some screenshots you can expect to see when viewing our application:
+React.js, Node.js, MongoDB, GraphQL, Express Apollo Server, JWT, React-Bootstrap, 
+
+## Presentation
+https://docs.google.com/presentation/d/1Wty5lSLBZz4VvIJRMvL6K5JdjQKnX7fxxncQhDVoTZw/edit?usp=sharing
+
+## Deployment Link : https://boiling-reef-48460.herokuapp.com/
+
+## Screenshots you can expect to see when viewing our application:
 
 ![Screen Shot 2021-10-11 at 12 19 11 PM](https://user-images.githubusercontent.com/87332492/136836413-2c19a053-7dc9-4b77-bc20-59c325c543dd.png)
 
